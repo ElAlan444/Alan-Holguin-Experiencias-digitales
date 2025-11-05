@@ -1,0 +1,125 @@
+/* --- CONFIGURACIÓN BÁSICA Y ELEGANCIA --- */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000; /* Mantenemos el fondo general en negro */
+    color: #FFFFFF; /* El color por defecto será blanco (para el header) */
+    font-family: 'Playfair Display', serif;
+    overflow-x: hidden;
+    /* Quitamos el padding del body para que el main pueda ocupar todo el ancho */
+}
+
+/* --- ELEMENTOS PRINCIPALES --- */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    /* Añadimos padding aquí para que los elementos no queden pegados a los bordes */
+    padding: 1rem 3rem; 
+}
+
+/* ... (el código del triángulo y la hamburguesa sigue igual) ... */
+.triangle-image-container {
+    width: 150px;
+    height: 150px;
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+}
+
+.triangle-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hamburger-menu {
+    width: 30px;
+    height: 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    margin-top: 1rem;
+    margin-right: 1rem;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* --- EL CONTENIDO "CAÓTICO" --- */
+
+/* --- MODIFICACIÓN PRINCIPAL --- */
+main {
+    background-color: #FFFFFF; /* AÑADIDO: Fondo blanco para el contenido */
+    color: #000000;           /* AÑADIDO: Texto negro para el contenido */
+    padding: 4rem 3rem;        /* AÑADIDO: Padding para que el contenido no toque los bordes */
+}
+/* --- FIN DE LA MODIFICACIÓN --- */
+
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin: 1.5rem 0;
+}
+
+/* --- MODIFICACIÓN --- */
+/* Ajustamos este bloque para que funcione sobre fondo blanco */
+.chaotic-block {
+    background-color: #f9f9f9; /* MODIFICADO: Un blanco ligeramente distinto para distinguirlo */
+    padding: 2rem;
+    border: 1px solid #000000; /* MODIFICADO: Borde negro */
+    transform: rotate(-3deg);
+    position: relative;
+    left: -50px; 
+    margin-top: 3rem;
+    max-width: 500px;
+}
+/* --- FIN DE LA MODIFICACIÓN --- */
+
+
+.chaotic-block h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+
+/* --- MODIFICACIÓN --- */
+/* Ajustamos este texto para que sea legible sobre fondo blanco */
+.overlapping-text {
+    position: relative;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 900;
+    top: -60px;
+    left: 150px;
+    max-width: 300px;
+    color: #555555; /* MODIFICADO: Un gris oscuro en lugar de claro */
+    text-align: right;
+}
+/* --- FIN DE LA MODIFICACIÓN --- */
