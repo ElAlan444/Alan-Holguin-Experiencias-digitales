@@ -135,6 +135,11 @@ p {
     
     /* ELIMINAR esta línea para que no afecte a pantallas más pequeñas */
     /* left: 140px; */ 
+    transform: rotate(-3deg);
+    position: relative;
+    left: -50px; /* Desplazamiento a la izquierda */
+    margin-right: auto; /* IMPORTANTE: Asegura que el bloque base esté a la izquierda */
+    margin-left: 0; /* Asegura que no haya margen izquierdo automático */
     
     margin-top: 3rem;
     max-width: 550px;
@@ -156,7 +161,7 @@ p {
     /* MODIFICADO: Aumentamos el desplazamiento a la izquierda */
     left: clamp(50px, 40vw, 450px); 
     max-width: 800px;
-    color: #555555;
+    color: white;
     text-align: right;
 }
 
@@ -222,10 +227,13 @@ p {
     /* Ajustes para el texto superpuesto en móvil */
     .overlapping-text {
         font-size: 1.2rem;
-        top: 17px; 
-        left: 0; /* Lo mantiene centrado o pegado a la izquierda */
+        top: 50px; /* Lo empujamos hacia abajo un poco en móvil */
+        left: 0; 
         text-align: center;
         max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        color: black;
     }
 
     
@@ -279,5 +287,64 @@ p {
     /* PREVENIR SCROLL AL ABRIR MENÚ */
     .no-scroll {
         overflow: hidden;
+    }
+}
+
+/* --- ESTILOS ESPECÍFICOS PARA PROYECTOS --- */
+
+/* Asegura que los bloques no se superpongan si hay muchos */
+.project-block {
+    margin-bottom: 5rem; 
+    margin-top: 5rem;
+}
+
+/* Estilo para el enlace de cada proyecto */
+.project-link {
+    display: inline-block;
+    color: #000000;
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 3px solid #000000; /* Subrayado grueso */
+    padding-bottom: 0.2rem;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.project-link:hover {
+    color: #555555;
+    border-color: #555555;
+}
+@media (min-width: 769px) {
+    .chaotic-block--right {
+        /* Invertir la rotación: de -3deg a 3deg */
+        transform: rotate(3deg);
+
+        /* Moverlo al lado derecho del contenedor principal */
+        margin-left: auto; /* Mueve el bloque a la derecha */
+        margin-right: 0; 
+        
+        /* Ajustar la posición relativa: lo movemos un poco a la derecha de la página */
+        left: 50px; /* En lugar de -50px, usamos 50px */
+    }
+}
+
+/* En la página de proyectos, el texto superpuesto puede tener un estilo diferente */
+@media (min-width: 769px) {
+    .content .overlapping-text {
+        position: relative; 
+        top: 150px; /* Valor positivo lo empuja hacia abajo, despegándolo de los proyectos */
+        left: 0; /* Lo reseteamos a 0 para que pueda centrarse */
+        text-align: center; /* Centrar el texto */
+        font-size: 1.8rem; /* Opcional: Aumentar un poco el tamaño */
+        max-width: 800px; /* Aseguramos que no se extienda demasiado */
+        margin-left: auto; /* Centrar el bloque */
+        margin-right: auto; /* Centrar el bloque */
+    }
+}
+@media (max-width: 768px) {
+    .chaotic-block--right {
+        transform: rotate(-1deg); /* Lo dejamos con una rotación sutil, o puedes usar 0deg */
+        left: 0;
+        margin-left: 0;
     }
 }
