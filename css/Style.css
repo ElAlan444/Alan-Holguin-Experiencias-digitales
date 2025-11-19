@@ -1,4 +1,6 @@
-/* --- CONFIGURACIÓN BÁSICA Y ELEGANCIA --- */
+/* ----------------------------------------------------------------- */
+/* --- CONFIGURACIÓN BÁSICA Y RESET --- */
+/* ----------------------------------------------------------------- */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
@@ -9,27 +11,27 @@
 }
 
 body {
-    background-color: #000000; /* Mantenemos el fondo general en negro */
-    color: #FFFFFF; /* El color por defecto será blanco (para el header) */
+    background-color: #000000;
+    color: #FFFFFF;
     font-family: 'Playfair Display', serif;
-    overflow-x: hidden;
-    /* Quitamos el padding del body para que el main pueda ocupar todo el ancho */
+    overflow-x: hidden; /* Evita barras de desplazamiento horizontales accidentales */
 }
 
-/* --- ELEMENTOS PRINCIPALES --- */
+/* ----------------------------------------------------------------- */
+/* --- HEADER Y NAVEGACIÓN (HEADER/MENU) --- */
+/* ----------------------------------------------------------------- */
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    /* Añadimos padding aquí para que los elementos no queden pegados a los bordes */
-    padding: 1rem 3rem; 
+    padding: 1rem 1.5rem; /* Ajustado para móviles */
 }
 
-/* ... (el código del triángulo y la hamburguesa sigue igual) ... */
+/* Imagen de Triángulo (Símbolo de Marca) */
 .triangle-image-container {
-    width: 150px;
-    height: 150px;
+    width: 100px; /* Reducido para mejor look en móvil */
+    height: 100px; /* Reducido para mejor look en móvil */
     clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
 }
 
@@ -39,6 +41,7 @@ header {
     object-fit: cover;
 }
 
+/* Menú de Hamburguesa (Solo visible en Móviles) */
 .hamburger-menu {
     width: 30px;
     height: 21px;
@@ -46,8 +49,8 @@ header {
     flex-direction: column;
     justify-content: space-between;
     cursor: pointer;
-    margin-top: 1rem;
-    margin-right: 1rem;
+    margin-top: 0.5rem; /* Más cerca del borde */
+    z-index: 100; /* Asegura que el icono esté encima de todo */
 }
 
 .hamburger-menu span {
@@ -58,28 +61,55 @@ header {
     transition: all 0.3s ease-in-out;
 }
 
-
-/* --- EL CONTENIDO "CAÓTICO" --- */
-
-/* --- MODIFICACIÓN PRINCIPAL --- */
-main {
-    background-color: #FFFFFF; /* AÑADIDO: Fondo blanco para el contenido */
-    color: #000000;           /* AÑADIDO: Texto negro para el contenido */
-    padding: 4rem 3rem;        /* AÑADIDO: Padding para que el contenido no toque los bordes */
+/* Enlaces de Navegación (Base para Desktop y Oculto para Mobile) */
+.main-nav {
+    display: flex;
+    align-items: center;
 }
-/* --- FIN DE LA MODIFICACIÓN --- */
 
+.nav-links {
+    list-style: none;
+    display: none; /* Oculto por defecto en CSS, se mostrará con JS */
+}
+
+/* ----------------------------------------------------------------- */
+/* --- CONTENIDO PRINCIPAL (MAIN) --- */
+/* ----------------------------------------------------------------- */
+
+main {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding: 2rem 1.5rem; /* Ajustado para móviles */
+}
 
 .content {
-    max-width: 600px;
-    margin: 0 auto;
+    /* Eliminamos el max-width y margin: auto para mayor libertad de diseño */
+    margin: 0; 
     position: relative;
+    /* Añadido un ancho máximo general para que no se desborde en pantallas muy grandes */
+    max-width: 1200px; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1 {
     font-size: 4rem;
     font-weight: 700;
     letter-spacing: 2px;
+    line-height: 1.1;
+    /* Controlamos el ancho del H1 para que no ocupe todo el espacio */
+    max-width: 700px; 
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: right;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: 0;
 }
 
 p {
@@ -88,38 +118,159 @@ p {
     margin: 1.5rem 0;
 }
 
-/* --- MODIFICACIÓN --- */
-/* Ajustamos este bloque para que funcione sobre fondo blanco */
+/* Controlamos el ancho del párrafo principal */
+.content > p:nth-of-type(2) { 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Bloque Caótico */
 .chaotic-block {
-    background-color: #f9f9f9; /* MODIFICADO: Un blanco ligeramente distinto para distinguirlo */
+    background-color: #f9f9f9;
     padding: 2rem;
-    border: 1px solid #000000; /* MODIFICADO: Borde negro */
+    border: 1px solid #000000;
     transform: rotate(-3deg);
     position: relative;
-    left: -50px; 
+    left: 140px;
     margin-top: 3rem;
-    max-width: 500px;
+    max-width: 550px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.8); /* Sombra para profundidad */
 }
-/* --- FIN DE LA MODIFICACIÓN --- */
-
 
 .chaotic-block h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-
-/* --- MODIFICACIÓN --- */
-/* Ajustamos este texto para que sea legible sobre fondo blanco */
+/* Texto Superpuesto/Overlapping */
 .overlapping-text {
     position: relative;
     font-size: 1.5rem;
     font-style: italic;
     font-weight: 900;
-    top: -60px;
-    left: 150px;
-    max-width: 300px;
-    color: #555555; /* MODIFICADO: Un gris oscuro en lugar de claro */
+    top: 10px;
+    /* MODIFICADO: Aumentamos el desplazamiento a la izquierda */
+    left: clamp(50px, 40vw, 450px); 
+    max-width: 800px;
+    color: #555555;
     text-align: right;
 }
-/* --- FIN DE LA MODIFICACIÓN --- */
+
+/* ----------------------------------------------------------------- */
+/* --- MEDIA QUERIES (RESPONSIVE) --- */
+/* ----------------------------------------------------------------- */
+
+@media (min-width: 769px) {
+    /* Desktop Styles: Mostrar enlaces de navegación */
+    .hamburger-menu {
+        display: none; /* Ocultar hamburguesa en desktop */
+    }
+
+    .nav-links {
+        display: flex; /* Mostrar enlaces en desktop */
+        gap: 1.5rem;
+    }
+    
+    .nav-links a {
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 1.1rem;
+        transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+        color: #CCCCCC; /* Efecto hover */
+    }
+
+    header {
+        padding: 2rem 3rem; /* Más padding en desktop */
+    }
+
+    main {
+        padding: 4rem 3rem; /* Más padding en desktop */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Mobile Styles: Ajustes para evitar desbordamiento */
+
+    h1 {
+        font-size: 2.5rem; /* Reducción de H1 en móvil */
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    /* Ajustes para el bloque caótico en móvil */
+    .chaotic-block {
+        left: 0; /* Lo centramos para que no se salga */
+        transform: rotate(-1deg); /* Menos rotación */
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Ajustes para el texto superpuesto en móvil */
+    .overlapping-text {
+        font-size: 1.2rem;
+        top: 17px; 
+        left: 0; /* Lo mantiene centrado o pegado a la izquierda */
+        text-align: center;
+        max-width: 100%;
+    }
+
+    
+    /* ... otros estilos para móvil ... */
+    
+    /* ESTILOS DEL MENÚ NAVEGACIÓN (nav-links) */
+    .nav-links {
+        display: flex; /* CAMBIADO de 'none' a 'flex' para poder manipularlo */
+        flex-direction: column;
+        position: fixed; /* Lo fijamos en la ventana */
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000; /* Fondo negro para que destaque */
+        padding-top: 150px;
+        align-items: center;
+        transform: translateX(100%); /* Oculto fuera de la pantalla (derecha) */
+        transition: transform 0.4s ease-in-out;
+        z-index: 50; /* Menor que la hamburguesa (100) pero mayor que el contenido */
+    }
+
+    .nav-links.active {
+        transform: translateX(0); /* CLASE JS: Muestra el menú deslizándolo */
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0;
+    }
+
+    .nav-links a {
+        color: #FFFFFF;
+        font-size: 2rem;
+        text-decoration: none;
+        letter-spacing: 5px;
+    }
+
+    /* ESTILOS DE ANIMACIÓN DE HAMBURGUESA */
+    .hamburger-menu.open span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+
+    .hamburger-menu.open span:nth-child(2) {
+        opacity: 0; /* Oculta la línea de en medio */
+    }
+
+    .hamburger-menu.open span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* PREVENIR SCROLL AL ABRIR MENÚ */
+    .no-scroll {
+        overflow: hidden;
+    }
+}
