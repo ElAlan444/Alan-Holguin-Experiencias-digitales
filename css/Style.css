@@ -453,3 +453,102 @@ footer p {
         padding: 4rem 3rem; /* Más espacio en desktop */
     }
 }
+
+/* --- Estilo para el enlace en el Footer --- */
+footer .footer-link {
+    color: #FFFFFF;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: color 0.3s;
+}
+
+footer .footer-link:hover {
+    color: #CCCCCC;
+    text-decoration: underline;
+}
+
+/* --- ESTILOS DEL BANNER DE COOKIES --- */
+.cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Negro semitransparente */
+    color: #FFFFFF;
+    padding: 15px 30px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    display: flex; /* Para alinear texto y botón */
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.cookie-banner p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.cookie-banner a {
+    color: #CCCCCC;
+    text-decoration: underline;
+}
+
+.cookie-banner button {
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    white-space: nowrap; /* Evita que el botón se rompa en varias líneas */
+}
+
+.cookie-banner button:hover {
+    background-color: #EEEEEE;
+}
+
+/* Clase para ocultar el banner con JS */
+.cookie-banner.hidden {
+    display: none;
+}
+
+/* Ajuste para móviles */
+@media (max-width: 600px) {
+    .cookie-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+    .cookie-banner p {
+        margin-bottom: 10px;
+    }
+}
+
+/* --- ESTILOS PARA LA PÁGINA DE PRIVACIDAD --- */
+
+/* Asegura un espacio extra para las secciones de la política */
+.privacy-section {
+    margin-bottom: 4rem;
+}
+
+.privacy-section ul {
+    list-style: disc; /* Usar viñetas estándar para la legibilidad */
+    padding-left: 20px;
+    margin-top: 1rem;
+    color: #000000;
+}
+
+.privacy-section li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Restaura el estilo de h2 a ser un título claro y no caótico aquí */
+.privacy-section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    text-decoration: underline; /* Opcional: Subraya para destacar el título de la sección */
+}
