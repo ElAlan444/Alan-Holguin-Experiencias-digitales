@@ -348,3 +348,27 @@ p {
         margin-left: 0;
     }
 }
+/* Esto es de la pagina de servicios*/
+/* Estilo para las listas dentro de los bloques de servicio */
+.service-block ul {
+    list-style: none; /* Eliminar viñetas por defecto */
+    padding-left: 0;
+    margin-top: 1.5rem;
+}
+
+.service-block li {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+/* Crear una viñeta personalizada elegante */
+.service-block li::before {
+    content: "◢"; /* Usa un carácter simple o un ícono */
+    color: #000000;
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+}
