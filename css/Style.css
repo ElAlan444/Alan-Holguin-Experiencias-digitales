@@ -32,13 +32,13 @@ header {
 .triangle-image-container {
     width: 100px; /* Reducido para mejor look en móvil */
     height: 100px; /* Reducido para mejor look en móvil */
-    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    /*clip-path: polygon(0% 0%, 100% 0%, 0% 100%);*/
 }
 
 .triangle-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit:contain;
 }
 
 /* Menú de Hamburguesa (Solo visible en Móviles) */
@@ -98,7 +98,7 @@ h1 {
     letter-spacing: 2px;
     line-height: 1.1;
     /* Controlamos el ancho del H1 para que no ocupe todo el espacio */
-    max-width: 700px; 
+    max-width: 900px; 
     margin-left: auto; 
     margin-right: 0;
 }
@@ -132,7 +132,10 @@ p {
     border: 1px solid #000000;
     transform: rotate(-3deg);
     position: relative;
-    left: 140px;
+    
+    /* ELIMINAR esta línea para que no afecte a pantallas más pequeñas */
+    /* left: 140px; */ 
+    
     margin-top: 3rem;
     max-width: 550px;
     box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.8); /* Sombra para profundidad */
@@ -210,6 +213,10 @@ p {
         max-width: 100%;
         margin-left: 0;
         margin-right: 0;
+        left: 6px; 
+        margin-right: auto;
+        /* Limita el ancho para que no se extienda demasiado */
+        max-width: 550px;
     }
 
     /* Ajustes para el texto superpuesto en móvil */
